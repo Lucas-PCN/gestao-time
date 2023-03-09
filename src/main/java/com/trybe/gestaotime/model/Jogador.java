@@ -44,8 +44,8 @@ public class Jogador {
   }
   
   public String getPosicao() {
-	    return posicao;
-	  }
+    return posicao;
+  }
 
   public void setPosicao(String posicao) {
     this.posicao = posicao;
