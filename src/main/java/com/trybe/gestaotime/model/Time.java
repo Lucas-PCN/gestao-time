@@ -19,7 +19,7 @@ public class Time {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+  private Long id;
 
   private String nome;
 
@@ -31,7 +31,7 @@ public class Time {
       inverseJoinColumns = { @JoinColumn(name = "torcedor_id") })
   private List<Torcedor> torcedores;
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 

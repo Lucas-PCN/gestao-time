@@ -14,7 +14,7 @@ public class Documento {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+  private Long id;
 
   private String cpf;
 
@@ -22,7 +22,7 @@ public class Documento {
 
   private String numeroCbf;
 
-  public Integer getId() {
+  public Long getId() {
     return id;
   }
 
