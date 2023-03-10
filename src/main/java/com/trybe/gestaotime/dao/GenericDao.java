@@ -49,7 +49,7 @@ public abstract class GenericDao<T, I extends Serializable> {
    */
   public void deletar(Long id) {
     em.getTransaction().begin();
-    T entity = em.find(classType, id);
+    T entity = em.find(entityClass, id);
     em.remove(entity);
     em.getTransaction().commit();
     em.close();
@@ -59,7 +59,7 @@ public abstract class GenericDao<T, I extends Serializable> {
    * Método find.
    */
   public T pegar(Long id) {
-    T entity = em.find(classType, id);
+    T entity = em.find(entityClass, id);
     em.close();
     return entity;
   }
@@ -69,8 +69,8 @@ public abstract class GenericDao<T, I extends Serializable> {
    */
   public List<T> listar() {
     CriteriaBuilder cb = em.getCriteriaBuilder();
-    CriteriaQuery<T> cq = cb.createQuery(classType);
-    Root<T> rootEntry = cq.from(classType);
+    CriteriaQuery<T> cq = cb.createQuery(entityClass);
+    Root<T> rootEntry = cq.from(entityClass);
     CriteriaQuery<T> all = cq.select(rootEntry);
     TypedQuery<T> allQuery = em.createQuery(all);
     return allQuery.getResultList();
