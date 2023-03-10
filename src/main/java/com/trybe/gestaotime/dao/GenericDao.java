@@ -31,7 +31,6 @@ public abstract class GenericDao<T, I extends Serializable> {
     em.getTransaction().begin();
     em.persist(entity);
     em.getTransaction().commit();
-    em.close();
   }
 
   /**
@@ -41,7 +40,6 @@ public abstract class GenericDao<T, I extends Serializable> {
     em.getTransaction().begin();
     em.merge(entity);
     em.getTransaction().commit();
-    em.close();
   }
 
   /**
@@ -52,16 +50,13 @@ public abstract class GenericDao<T, I extends Serializable> {
     T entity = em.find(entityClass, id);
     em.remove(entity);
     em.getTransaction().commit();
-    em.close();
   }
 
   /**
    * Método find.
    */
   public T pegar(Long id) {
-    T entity = em.find(entityClass, id);
-    em.close();
-    return entity;
+    return em.find(entityClass, id);
   }
 
   /**
